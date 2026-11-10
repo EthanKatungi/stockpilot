@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme.dart';
+import 'add_product_screen.dart';
+import 'product_detail_screen.dart';
 import 'products_mock_data.dart';
 import 'widgets/category_filter_chip.dart';
 import 'widgets/product_list_tile.dart';
@@ -36,6 +38,20 @@ class _ProductsScreenState extends State<ProductsScreen> {
     setState(() => _selectedCategory = category);
   }
 
+  void _openProduct(MockProduct product) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ProductDetailScreen(product: product),
+      ),
+    );
+  }
+
+  void _openAddProduct() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute<void>(builder: (_) => const AddProductScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     final visibleProducts = _visibleProducts;
@@ -50,7 +66,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const _ProductsHeader(),
+                _ProductsHeader(onAddProduct: _openAddProduct),
                 const SizedBox(height: 23),
                 _ProductSearchField(
                   onChanged: (value) => setState(() => _query = value),
@@ -128,7 +144,10 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     index < visibleProducts.length;
                     index++
                   ) ...[
-                    ProductListTile(product: visibleProducts[index]),
+                    ProductListTile(
+                      product: visibleProducts[index],
+                      onTap: () => _openProduct(visibleProducts[index]),
+                    ),
                     if (index != visibleProducts.length - 1)
                       const SizedBox(height: 9),
                   ],
@@ -142,7 +161,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
 }
 
 class _ProductsHeader extends StatelessWidget {
-  const _ProductsHeader();
+  const _ProductsHeader({required this.onAddProduct});
+
+  final VoidCallback onAddProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -177,15 +198,18 @@ class _ProductsHeader extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          width: 42,
-          height: 42,
-          decoration: BoxDecoration(
-            color: AppTheme.primary,
+        Material(
+          color: AppTheme.primary,
+          borderRadius: BorderRadius.circular(13),
+          child: InkWell(
+            onTap: onAddProduct,
             borderRadius: BorderRadius.circular(13),
+            child: const SizedBox(
+              width: 42,
+              height: 42,
+              child: Icon(Icons.add, color: Colors.white, size: 27),
+            ),
           ),
-          alignment: Alignment.center,
-          child: const Icon(Icons.add, color: Colors.white, size: 27),
         ),
         const SizedBox(width: 1),
       ],

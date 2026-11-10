@@ -8,6 +8,11 @@ class MockProduct {
     required this.sku,
     required this.quantity,
     required this.initials,
+    required this.unitOfMeasure,
+    required this.unitSymbol,
+    required this.averageUnitCost,
+    required this.reorderThreshold,
+    required this.stockValue,
   });
 
   final String name;
@@ -16,6 +21,11 @@ class MockProduct {
   final String sku;
   final String quantity;
   final String initials;
+  final String unitOfMeasure;
+  final String unitSymbol;
+  final String averageUnitCost;
+  final String reorderThreshold;
+  final String stockValue;
 }
 
 /// Display-only inventory used until product storage is implemented.
@@ -28,6 +38,11 @@ class ProductsMockData {
       sku: 'ARA-001',
       quantity: '42,000 kg',
       initials: 'AR',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 8,750',
+      reorderThreshold: '1,000 kg',
+      stockValue: 'UGX 367,500,000',
     ),
     MockProduct(
       name: 'Robusta Coffee',
@@ -36,6 +51,11 @@ class ProductsMockData {
       sku: 'ROB-002',
       quantity: '58,500 kg',
       initials: 'RO',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 6,200',
+      reorderThreshold: '2,500 kg',
+      stockValue: 'UGX 362,700,000',
     ),
     MockProduct(
       name: 'Packaging Bags',
@@ -44,6 +64,11 @@ class ProductsMockData {
       sku: 'BAG-011',
       quantity: '8,200 pcs',
       initials: 'PB',
+      unitOfMeasure: 'Pieces (pcs)',
+      unitSymbol: 'pcs',
+      averageUnitCost: 'UGX 950',
+      reorderThreshold: '1,000 pcs',
+      stockValue: 'UGX 7,790,000',
     ),
     MockProduct(
       name: 'Jute Sacks',
@@ -52,6 +77,11 @@ class ProductsMockData {
       sku: 'SAC-014',
       quantity: '3,500 pcs',
       initials: 'JS',
+      unitOfMeasure: 'Pieces (pcs)',
+      unitSymbol: 'pcs',
+      averageUnitCost: 'UGX 2,800',
+      reorderThreshold: '500 pcs',
+      stockValue: 'UGX 9,800,000',
     ),
     MockProduct(
       name: 'Sesame Seeds',
@@ -60,6 +90,11 @@ class ProductsMockData {
       sku: 'SES-003',
       quantity: '20,000 kg',
       initials: 'SE',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 4,500',
+      reorderThreshold: '1,500 kg',
+      stockValue: 'UGX 90,000,000',
     ),
     MockProduct(
       name: 'Sunflower Oil',
@@ -68,6 +103,11 @@ class ProductsMockData {
       sku: 'OIL-005',
       quantity: '1,250 L',
       initials: 'SO',
+      unitOfMeasure: 'Litres (L)',
+      unitSymbol: 'L',
+      averageUnitCost: 'UGX 9,500',
+      reorderThreshold: '200 L',
+      stockValue: 'UGX 11,875,000',
     ),
     MockProduct(
       name: 'Carton Boxes',
@@ -76,6 +116,11 @@ class ProductsMockData {
       sku: 'BOX-012',
       quantity: '4,400 pcs',
       initials: 'CB',
+      unitOfMeasure: 'Pieces (pcs)',
+      unitSymbol: 'pcs',
+      averageUnitCost: 'UGX 3,200',
+      reorderThreshold: '600 pcs',
+      stockValue: 'UGX 14,080,000',
     ),
     MockProduct(
       name: 'Green Tea',
@@ -84,6 +129,11 @@ class ProductsMockData {
       sku: 'TEA-004',
       quantity: '12,800 kg',
       initials: 'GT',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 5,200',
+      reorderThreshold: '1,000 kg',
+      stockValue: 'UGX 66,560,000',
     ),
     MockProduct(
       name: 'Product Labels',
@@ -92,6 +142,11 @@ class ProductsMockData {
       sku: 'LAB-016',
       quantity: '15,000 pcs',
       initials: 'PL',
+      unitOfMeasure: 'Pieces (pcs)',
+      unitSymbol: 'pcs',
+      averageUnitCost: 'UGX 300',
+      reorderThreshold: '2,000 pcs',
+      stockValue: 'UGX 4,500,000',
     ),
     MockProduct(
       name: 'Cane Sugar',
@@ -100,6 +155,11 @@ class ProductsMockData {
       sku: 'SUG-006',
       quantity: '9,600 kg',
       initials: 'CS',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 3,600',
+      reorderThreshold: '800 kg',
+      stockValue: 'UGX 34,560,000',
     ),
     MockProduct(
       name: 'Milk Powder',
@@ -108,6 +168,11 @@ class ProductsMockData {
       sku: 'MIL-007',
       quantity: '1,300 kg',
       initials: 'MP',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 14,000',
+      reorderThreshold: '250 kg',
+      stockValue: 'UGX 18,200,000',
     ),
     MockProduct(
       name: 'Cocoa Beans',
@@ -116,6 +181,11 @@ class ProductsMockData {
       sku: 'COC-008',
       quantity: '7,400 kg',
       initials: 'CO',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 12,000',
+      reorderThreshold: '600 kg',
+      stockValue: 'UGX 88,800,000',
     ),
     MockProduct(
       name: 'White Rice',
@@ -124,6 +194,11 @@ class ProductsMockData {
       sku: 'RIC-009',
       quantity: '16,200 kg',
       initials: 'WR',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 3,200',
+      reorderThreshold: '1,200 kg',
+      stockValue: 'UGX 51,840,000',
     ),
     MockProduct(
       name: 'Dried Mango',
@@ -132,6 +207,11 @@ class ProductsMockData {
       sku: 'MAN-010',
       quantity: '2,100 kg',
       initials: 'DM',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 15,000',
+      reorderThreshold: '300 kg',
+      stockValue: 'UGX 31,500,000',
     ),
     MockProduct(
       name: 'Coffee Filters',
@@ -140,6 +220,11 @@ class ProductsMockData {
       sku: 'FIL-017',
       quantity: '6,000 pcs',
       initials: 'CF',
+      unitOfMeasure: 'Pieces (pcs)',
+      unitSymbol: 'pcs',
+      averageUnitCost: 'UGX 600',
+      reorderThreshold: '700 pcs',
+      stockValue: 'UGX 3,600,000',
     ),
     MockProduct(
       name: 'Ground Arabica',
@@ -148,6 +233,11 @@ class ProductsMockData {
       sku: 'GRA-018',
       quantity: '1,750 kg',
       initials: 'GA',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 18,000',
+      reorderThreshold: '250 kg',
+      stockValue: 'UGX 31,500,000',
     ),
     MockProduct(
       name: 'Roasted Robusta',
@@ -156,6 +246,11 @@ class ProductsMockData {
       sku: 'RRO-019',
       quantity: '2,250 kg',
       initials: 'RR',
+      unitOfMeasure: 'Kilograms (kg)',
+      unitSymbol: 'kg',
+      averageUnitCost: 'UGX 14,000',
+      reorderThreshold: '300 kg',
+      stockValue: 'UGX 31,500,000',
     ),
     MockProduct(
       name: 'Wooden Pallets',
@@ -164,6 +259,11 @@ class ProductsMockData {
       sku: 'PAL-020',
       quantity: '420 pcs',
       initials: 'WP',
+      unitOfMeasure: 'Pieces (pcs)',
+      unitSymbol: 'pcs',
+      averageUnitCost: 'UGX 45,000',
+      reorderThreshold: '80 pcs',
+      stockValue: 'UGX 18,900,000',
     ),
   ];
 }
