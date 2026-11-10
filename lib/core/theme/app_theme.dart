@@ -12,6 +12,10 @@ class AppTheme {
   static const border = Color(0xFFE5ECE6);
   static const warning = Color(0xFFD7871F);
   static const warningBackground = Color(0xFFFFF5E5);
+  static const packagingBackground = Color(0xFFFFF3E6);
+  static const packagingInk = Color(0xFFC17C28);
+  static const commodityBackground = Color(0xFFEBEDF8);
+  static const commodityInk = Color(0xFF6669AB);
 
   static const bodySmall = TextStyle(color: muted, fontSize: 12, height: 1.3);
   static const sectionTitle = TextStyle(
