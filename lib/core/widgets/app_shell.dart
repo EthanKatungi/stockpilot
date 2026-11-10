@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../features/dashboard/dashboard_screen.dart';
+import '../../features/movements/movements_screen.dart';
+import '../../features/products/products_screen.dart';
+import '../../features/settings/settings_screen.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
@@ -12,15 +16,9 @@ class _AppShellState extends State<AppShell> {
 
   @override
   Widget build(BuildContext context) {
-    final titles = ['Dashboard', 'Products', 'Stock Movements', 'Settings'];
+    const screens = <Widget>[DashboardScreen(), MovementsScreen(), ProductsScreen(), SetttingsScreen()];
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Text(titles[currentPageIndex])],
-        ),
-      ),
+      body: screens[currentPageIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentPageIndex,
         onDestinationSelected: (int index) {
@@ -29,14 +27,17 @@ class _AppShellState extends State<AppShell> {
           });
         },
         destinations: const <Widget>[
-          NavigationDestination(icon: Icon(Icons.home_outlined), label: 'Home'),
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            label: 'Dashboard',
+          ),
           NavigationDestination(
             icon: Icon(Icons.add_box_outlined),
             label: 'Products',
           ),
           NavigationDestination(
             icon: Icon(Icons.inventory_2_outlined),
-            label: 'Stock',
+            label: 'Movements',
           ),
           NavigationDestination(icon: Icon(Icons.settings), label: 'Settings'),
         ],
