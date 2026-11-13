@@ -107,8 +107,8 @@ void main() {
   testWidgets('Reports link opens the existing Stock tab', (tester) async {
     _phoneSize(tester);
     await _openAnalytics(tester);
-    await tester.ensureVisible(find.text('Stock movements').last);
-    await tester.tap(find.text('Stock movements').last);
+    await tester.ensureVisible(find.text('Open Stock tab'));
+    await tester.tap(find.text('Open Stock tab'));
     await tester.pumpAndSettle();
     expect(find.byType(MovementsScreen), findsOneWidget);
     expect(find.text('Stock'), findsOneWidget);

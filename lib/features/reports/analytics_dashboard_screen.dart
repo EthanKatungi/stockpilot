@@ -5,7 +5,9 @@ import '../movements/low_stock_alerts_screen.dart';
 import '../movements/movements_screen.dart';
 import '../products/products_mock_data.dart';
 import 'inventory_valuation_screen.dart';
+import 'export_history_screen.dart';
 import 'reports_mock_data.dart';
+import 'stock_movement_report_screen.dart';
 import 'widgets/report_charts.dart';
 import 'widgets/report_components.dart';
 
@@ -209,7 +211,11 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                     title: 'Stock movements',
                     subtitle: 'Receipts, issues and adjustments',
                     icon: Icons.swap_horiz,
-                    onTap: _openMovements,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const StockMovementReportScreen(),
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 9),
                   ReportDestinationTile(
@@ -221,6 +227,24 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                       MaterialPageRoute<void>(
                         builder: (_) => const LowStockAlertsScreen(),
                       ),
+                    ),
+                  ),
+                  const SizedBox(height: 9),
+                  ReportDestinationTile(
+                    title: 'Export history',
+                    subtitle: 'Past report file requests',
+                    icon: Icons.history,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const ExportHistoryScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Center(
+                    child: TextButton(
+                      onPressed: _openMovements,
+                      child: const Text('Open Stock tab'),
                     ),
                   ),
                 ],
