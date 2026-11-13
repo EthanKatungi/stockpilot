@@ -5,6 +5,7 @@ import 'package:stockpilot/features/movements/movement_detail_screen.dart';
 import 'package:stockpilot/features/movements/movements_mock_data.dart';
 import 'package:stockpilot/features/movements/widgets/movement_tile.dart';
 import 'package:stockpilot/features/reports/export_history_screen.dart';
+import 'package:stockpilot/features/reports/export_report_screen.dart';
 import 'package:stockpilot/features/reports/movement_report_data.dart';
 import 'package:stockpilot/features/reports/stock_movement_report_screen.dart';
 import 'package:stockpilot/main.dart';
@@ -78,8 +79,10 @@ void main() {
 
     await tester.ensureVisible(find.text('Export CSV'));
     await tester.tap(find.text('Export CSV'));
-    await tester.pump();
-    expect(find.textContaining('No file was created'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.byType(ExportReportScreen), findsOneWidget);
+    expect(find.text('Stock movements'), findsOneWidget);
+    expect(find.text('10 Nov 2026 – 11 Nov 2026'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:stockpilot/features/movements/movements_screen.dart';
 import 'package:stockpilot/features/products/products_mock_data.dart';
+import 'package:stockpilot/features/products/product_detail_screen.dart';
 import 'package:stockpilot/features/reports/analytics_dashboard_screen.dart';
+import 'package:stockpilot/features/reports/export_report_screen.dart';
 import 'package:stockpilot/features/reports/inventory_valuation_screen.dart';
 import 'package:stockpilot/features/reports/reports_mock_data.dart';
 import 'package:stockpilot/features/reports/widgets/report_charts.dart';
@@ -64,6 +66,13 @@ void main() {
     expect(find.byType(InventoryValuationScreen), findsOneWidget);
     expect(find.text('Exact valuation: UGX 1,054,926,000'), findsOneWidget);
     expect(find.text('Category breakdown'), findsOneWidget);
+    await tester.ensureVisible(find.text('Arabica Coffee'));
+    await tester.tap(find.text('Arabica Coffee'));
+    await tester.pumpAndSettle();
+    expect(find.byType(ProductDetailScreen), findsOneWidget);
+    Navigator.of(tester.element(find.byType(ProductDetailScreen))).pop();
+    await tester.pumpAndSettle();
+    expect(find.byType(InventoryValuationScreen), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
@@ -98,8 +107,9 @@ void main() {
 
       await tester.ensureVisible(find.text('Export'));
       await tester.tap(find.text('Export'));
-      await tester.pump();
-      expect(find.textContaining('No file was created'), findsOneWidget);
+      await tester.pumpAndSettle();
+      expect(find.byType(ExportReportScreen), findsOneWidget);
+      expect(find.text('Inventory valuation'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );

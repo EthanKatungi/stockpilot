@@ -7,6 +7,7 @@ import '../movements/widgets/movement_tile.dart';
 import '../products/products_mock_data.dart';
 import '../products/widgets/category_filter_chip.dart';
 import 'export_history_screen.dart';
+import 'export_report_screen.dart';
 import 'movement_report_data.dart';
 import 'widgets/report_components.dart';
 
@@ -61,16 +62,16 @@ class _StockMovementReportScreenState extends State<StockMovementReportScreen> {
     });
   }
 
-  void _exportPlaceholder() {
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Movement report export will be implemented later. No file was created.',
-          ),
+  void _openExport() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => ExportReportScreen(
+          initialReport: ReportExportType.movements,
+          initialRange: _range,
+          initialFormat: ReportFileFormat.csv,
         ),
-      );
+      ),
+    );
   }
 
   @override
@@ -300,7 +301,7 @@ class _StockMovementReportScreenState extends State<StockMovementReportScreen> {
                     width: double.infinity,
                     height: 46,
                     child: FilledButton.icon(
-                      onPressed: _exportPlaceholder,
+                      onPressed: _openExport,
                       icon: const Icon(Icons.file_download_outlined, size: 18),
                       label: const Text('Export CSV'),
                     ),

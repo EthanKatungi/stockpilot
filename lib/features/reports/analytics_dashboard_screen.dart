@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../movements/low_stock_alerts_screen.dart';
 import '../movements/movements_screen.dart';
+import '../movements/movements_mock_data.dart';
 import '../products/products_mock_data.dart';
+import 'export_report_screen.dart';
 import 'inventory_valuation_screen.dart';
 import 'export_history_screen.dart';
+import 'movement_report_data.dart';
 import 'reports_mock_data.dart';
 import 'stock_movement_report_screen.dart';
 import 'widgets/report_charts.dart';
@@ -24,6 +27,22 @@ class AnalyticsDashboardScreen extends StatefulWidget {
 class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
   ReportPeriod _period = ReportPeriod.month;
   int _selectedIndex = 0;
+
+  DateTimeRange _movementRange() {
+    final latest = MovementsMockData.movements
+        .map(MovementReportData.dateOf)
+        .whereType<DateTime>()
+        .reduce((a, b) => a.isAfter(b) ? a : b);
+    final days = switch (_period) {
+      ReportPeriod.week => 7,
+      ReportPeriod.month => 30,
+      ReportPeriod.quarter => 90,
+    };
+    return DateTimeRange(
+      start: latest.subtract(Duration(days: days - 1)),
+      end: latest,
+    );
+  }
 
   void _openMovements() {
     if (widget.onOpenMovements != null) {
@@ -213,7 +232,9 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                     icon: Icons.swap_horiz,
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
-                        builder: (_) => const StockMovementReportScreen(),
+                        builder: (_) => StockMovementReportScreen(
+                          initialRange: _movementRange(),
+                        ),
                       ),
                     ),
                   ),
@@ -237,6 +258,18 @@ class _AnalyticsDashboardScreenState extends State<AnalyticsDashboardScreen> {
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute<void>(
                         builder: (_) => const ExportHistoryScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 9),
+                  ReportDestinationTile(
+                    title: 'Export report',
+                    subtitle: 'Choose a report and file format',
+                    icon: Icons.file_download_outlined,
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) =>
+                            ExportReportScreen(initialPeriod: _period),
                       ),
                     ),
                   ),

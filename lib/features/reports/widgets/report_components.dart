@@ -94,6 +94,54 @@ class ReportMetricCard extends StatelessWidget {
   );
 }
 
+class ReportLabeledField extends StatelessWidget {
+  const ReportLabeledField({
+    super.key,
+    required this.label,
+    required this.child,
+  });
+
+  final String label;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 15),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            color: AppTheme.muted,
+            fontSize: 10,
+            fontWeight: FontWeight.w700,
+            letterSpacing: .3,
+          ),
+        ),
+        const SizedBox(height: 8),
+        child,
+      ],
+    ),
+  );
+}
+
+InputDecoration reportInputDecoration() {
+  final border = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(11),
+    borderSide: const BorderSide(color: AppTheme.border),
+  );
+  return InputDecoration(
+    filled: true,
+    fillColor: Colors.white,
+    isDense: true,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+    border: border,
+    enabledBorder: border,
+    focusedBorder: border,
+  );
+}
+
 class ReportDestinationTile extends StatelessWidget {
   const ReportDestinationTile({
     super.key,

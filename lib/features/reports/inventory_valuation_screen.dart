@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../products/product_detail_screen.dart';
 import '../products/products_mock_data.dart';
 import '../products/widgets/category_filter_chip.dart';
+import 'export_report_screen.dart';
 import 'reports_mock_data.dart';
 import 'widgets/report_components.dart';
 
@@ -55,16 +57,13 @@ class _InventoryValuationScreenState extends State<InventoryValuationScreen> {
     return products;
   }
 
-  void _exportPlaceholder() {
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Report export will be implemented in a later phase. No file was created.',
-          ),
-        ),
-      );
+  void _openExport() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) =>
+            const ExportReportScreen(initialReport: ReportExportType.valuation),
+      ),
+    );
   }
 
   @override
@@ -165,7 +164,7 @@ class _InventoryValuationScreenState extends State<InventoryValuationScreen> {
                         ),
                       ),
                       TextButton.icon(
-                        onPressed: _exportPlaceholder,
+                        onPressed: _openExport,
                         icon: const Icon(
                           Icons.file_download_outlined,
                           size: 17,
@@ -231,7 +230,15 @@ class _InventoryValuationScreenState extends State<InventoryValuationScreen> {
                     )
                   else
                     for (final product in visible) ...[
-                      _ValuationProductTile(product: product),
+                      _ValuationProductTile(
+                        product: product,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) =>
+                                ProductDetailScreen(product: product),
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 9),
                     ],
                   const SizedBox(height: 17),
@@ -286,75 +293,84 @@ class _InventoryValuationScreenState extends State<InventoryValuationScreen> {
 }
 
 class _ValuationProductTile extends StatelessWidget {
-  const _ValuationProductTile({required this.product});
+  const _ValuationProductTile({required this.product, required this.onTap});
 
   final MockProduct product;
+  final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(11),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      border: Border.all(color: AppTheme.border),
+  Widget build(BuildContext context) => Material(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(13),
+    child: InkWell(
+      onTap: onTap,
       borderRadius: BorderRadius.circular(13),
-    ),
-    child: Row(
-      children: [
-        Container(
-          width: 40,
-          height: 40,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: AppTheme.mint,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Text(
-            product.name[0],
-            style: const TextStyle(
-              color: AppTheme.primary,
-              fontSize: 14,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
+      child: Container(
+        padding: const EdgeInsets.all(11),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: AppTheme.border),
+          borderRadius: BorderRadius.circular(13),
         ),
-        const SizedBox(width: 11),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                product.name,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+        child: Row(
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: AppTheme.mint,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                product.name[0],
                 style: const TextStyle(
-                  color: AppTheme.ink,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
+                  color: AppTheme.primary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w800,
                 ),
               ),
-              const SizedBox(height: 5),
-              Text(
-                '${product.quantity} × ${product.averageUnitCost}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppTheme.bodySmall.copyWith(fontSize: 10),
+            ),
+            const SizedBox(width: 11),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    product.name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: AppTheme.ink,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    '${product.quantity} × ${product.averageUnitCost}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTheme.bodySmall.copyWith(fontSize: 10),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              ReportsMockData.formatUgx(
+                ReportsMockData.valueOf(product),
+                compact: true,
+              ),
+              style: const TextStyle(
+                color: AppTheme.primary,
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(width: 6),
-        Text(
-          ReportsMockData.formatUgx(
-            ReportsMockData.valueOf(product),
-            compact: true,
-          ),
-          style: const TextStyle(
-            color: AppTheme.primary,
-            fontSize: 11,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ],
+      ),
     ),
   );
 }
