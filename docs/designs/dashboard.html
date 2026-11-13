@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StockPilot — Dashboard (1 screens)</title>
+<meta name="description" content="StockPilot focused Dashboard UI reference; 1 static phone mockups.">
+<link rel="stylesheet" href="design_tokens.css"><link rel="stylesheet" href="components.css">
+<!-- CODEX: This is a static HTML/CSS DESIGN REFERENCE, not production UI. Use native Flutter widgets.
+     Relevant screen IDs: M01.
+     Read THIS file plus design_tokens.css and components.css, not the 55-screen master.
+     Screen content is illustrative mock data; do not implement persistence in a UI-only phase.
+     Figma-based designs are approximated HTML reconstructions, not exact Figma exports.
+     Preserve previously approved Flutter implementations unless explicitly asked to change them. -->
+<style>
+/* Small page-specific shell styles; screen/phone styling remains in shared CSS. */
+.split-top{background:linear-gradient(125deg,#082c1a,#14532d);color:#fff;padding:26px 30px}
+.split-top .inner{max-width:1480px;margin:auto}.split-top a{color:#c5f0d1;text-decoration:none;font-size:13px}
+.split-top h1{margin:15px 0 7px;font-size:30px;letter-spacing:-1px}.split-top p{margin:0;color:#d9ebde;line-height:1.5;max-width:790px;font-size:14px}
+.split-index{max-width:1480px;padding:16px 30px 0;margin:auto;display:flex;flex-wrap:wrap;gap:9px}
+.split-index a{text-decoration:none;background:#fff;border:1px solid #dce9dd;border-radius:9px;padding:9px 11px;color:#14532d;font-size:12px}
+.split-index strong{margin-right:5px}.split-note{max-width:1480px;margin:15px auto;padding:0 30px;font-size:12px;line-height:1.6;color:#5b7664}
+@media(max-width:600px){.split-top{padding:22px 18px}.split-index,.split-note{padding-left:18px;padding-right:18px}}
+</style></head><body>
+<div class="split-top"><div class="inner"><a href="index.html">‹ All StockPilot design sections</a><h1>Dashboard</h1><p>Dashboard shell, valuation, summary metrics and recent activity · Phase 1 · 1 screen references</p></div></div>
+<nav class="split-index" aria-label="Screen jump navigation"><a href="#M01"><strong>M01</strong> Dashboard</a></nav>
+<p class="split-note">Design-only reference. Static values are illustrative. Approved Flutter UI takes priority over minor differences in Figma-derived HTML reconstructions.</p>
+<div class="section-block" data-group="core-dashboard-and-overview"><div class="group-header"><div><h2>Core dashboard and overview</h2><p>Dashboard shell, valuation, summary metrics and recent activity</p></div><span class="gcount">1 screens</span></div><section class="gallery">
+<article class="phone-wrap" data-phase="1" data-source="figma-original-recreated" data-title="Dashboard" id="M01"><div class="frame-caption"><span>M01</span> Dashboard</div><div class="phone"><div class="status"><b>9:41</b><span>● ▰ ▰</span></div><header class="head"><div class="eyebrow">STOCKPILOT / OVERVIEW</div><h2>Dashboard</h2><p>Inventory overview and quick insights</p></header><main><div class="greeting-row"><div><b>Good morning 👋</b><small>Here’s how your inventory is doing today.</small></div><div class="bell">♧</div></div><div class="hero-card"><div class="hero-kicker">TOTAL STOCK VALUE</div><div class="hero-number">UGX 312,400,000</div><div class="hero-foot">↗ +6.4% this month</div></div><div class="metrics"><div class="metric"><strong>124,500 kg</strong><small>Total stock</small></div><div class="metric"><strong>18</strong><small>Products</small></div><div class="metric"><strong>4</strong><small>Open orders</small></div><div class="metric"><strong>7</strong><small>Low stock</small></div></div><div class="section-title"><strong>Recent activity</strong><a>See all</a></div><div class="item"><div class="mini green">⇧</div><div class="itembody"><strong>Arabica Coffee received</strong><small>Today · Receipt MOV-1042</small></div><div class="end">+2,000 kg</div></div><div class="item"><div class="mini amber">⇩</div><div class="itembody"><strong>Packaging Bags issued</strong><small>Yesterday · Issue MOV-1039</small></div><div class="end">−500 pcs</div></div><div class="notice amber"><strong>Inventory attention</strong><p>7 products have reached their reorder threshold.</p></div></main><div class="bottom"><div class="nav on"><span>⌂</span><small>Home</small></div><div class="nav"><span>▣</span><small>Products</small></div><div class="nav"><span>⇄</span><small>Stock</small></div><div class="nav"><span>•••</span><small>More</small></div></div></div></article>
+</section></div>
+<script type="application/json" id="stockpilot-screen-manifest">[{"id":"M01","title":"Dashboard","section":"01 · Core app","phase":"1","source":"figma-original-recreated","anchor":"mvp","reference_only":true,"file":"dashboard.html"}]</script>
+</body></html>

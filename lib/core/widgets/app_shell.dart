@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import '../../features/dashboard/dashboard_screen.dart';
 import '../../features/movements/movements_screen.dart';
+import '../../features/movements/low_stock_alerts_screen.dart';
 import '../../features/products/products_screen.dart';
 import '../../features/settings/settings_screen.dart';
 
@@ -21,6 +22,9 @@ class _AppShellState extends State<AppShell> {
     final screens = <Widget>[
       DashboardScreen(
         onOpenMovements: () => setState(() => currentPageIndex = 2),
+        onOpenLowStockAlerts: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(builder: (_) => const LowStockAlertsScreen()),
+        ),
       ),
       const ProductsScreen(),
       const MovementsScreen(),

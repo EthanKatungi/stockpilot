@@ -12,6 +12,9 @@ class AppTheme {
   static const border = Color(0xFFE5ECE6);
   static const warning = Color(0xFFD7871F);
   static const warningBackground = Color(0xFFFFF5E5);
+  static const danger = Color(0xFFB63A38);
+  static const dangerDark = Color(0xFF8D3330);
+  static const dangerBackground = Color(0xFFFCECEB);
   static const packagingBackground = Color(0xFFFFF3E6);
   static const packagingInk = Color(0xFFC17C28);
   static const commodityBackground = Color(0xFFEBEDF8);

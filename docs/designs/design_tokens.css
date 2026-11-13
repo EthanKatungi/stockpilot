@@ -1,0 +1,14 @@
+/* StockPilot reference colors — single design-token source for the HTML gallery.
+   These are reference tokens; production Flutter tokens belong in AppTheme. */
+:root {
+  --primary: #14532D;
+  --bright: #16A34A;
+  --soft: #EAF5ED;
+  --ink: #17251D;
+  --muted: #657469;
+  --border: #E5ECE6;
+  --surface: #F7FAF7;
+  --danger: #B63A38;
+  --warning: #B87516;
+  --canvas: #EAF0EA;
+}

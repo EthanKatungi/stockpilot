@@ -4,9 +4,14 @@ import '../../core/theme/app_theme.dart';
 import 'dashboard_mock_data.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key, this.onOpenMovements});
+  const DashboardScreen({
+    super.key,
+    this.onOpenMovements,
+    this.onOpenLowStockAlerts,
+  });
 
   final VoidCallback? onOpenMovements;
+  final VoidCallback? onOpenLowStockAlerts;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +29,9 @@ class DashboardScreen extends StatelessWidget {
                 const SizedBox(height: 23),
                 const _StockValueCard(),
                 const SizedBox(height: 20),
-                const Row(
+                Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: _MetricCard(
                         value: DashboardMockData.activeProducts,
                         label: 'Active products',
@@ -34,13 +39,14 @@ class DashboardScreen extends StatelessWidget {
                         valueColor: AppTheme.ink,
                       ),
                     ),
-                    SizedBox(width: 11),
+                    const SizedBox(width: 11),
                     Expanded(
                       child: _MetricCard(
                         value: DashboardMockData.lowStockAlerts,
                         label: 'Low-stock alerts',
                         background: AppTheme.warningBackground,
                         valueColor: AppTheme.warning,
+                        onTap: onOpenLowStockAlerts,
                       ),
                     ),
                   ],
@@ -269,41 +275,47 @@ class _MetricCard extends StatelessWidget {
     required this.label,
     required this.background,
     required this.valueColor,
+    this.onTap,
   });
 
   final String value;
   final String label;
   final Color background;
   final Color valueColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 103,
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: background,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            value,
-            style: TextStyle(
-              color: valueColor,
-              fontSize: 27,
-              fontWeight: FontWeight.w700,
-              height: 1.3,
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        height: 103,
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: background,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              value,
+              style: TextStyle(
+                color: valueColor,
+                fontSize: 27,
+                fontWeight: FontWeight.w700,
+                height: 1.3,
+              ),
             ),
-          ),
-          const SizedBox(height: 2),
-          Text(
-            label,
-            maxLines: 2,
-            style: AppTheme.bodySmall.copyWith(fontWeight: FontWeight.w500),
-          ),
-        ],
+            const SizedBox(height: 2),
+            Text(
+              label,
+              maxLines: 2,
+              style: AppTheme.bodySmall.copyWith(fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../movements/movement_navigation.dart';
 import 'products_mock_data.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -171,10 +172,8 @@ class ProductDetailScreen extends StatelessWidget {
                     width: double.infinity,
                     height: 43,
                     child: FilledButton(
-                      onPressed: () => _showComingSoon(
-                        context,
-                        'Stock movements will be implemented in Module 2.',
-                      ),
+                      onPressed: () =>
+                          openRecordMovementFlow(context, product: product),
                       style: FilledButton.styleFrom(
                         backgroundColor: AppTheme.primary,
                         foregroundColor: Colors.white,

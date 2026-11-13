@@ -1,0 +1,557 @@
+{
+  "project": "StockPilot",
+  "screenCount": 55,
+  "designReferenceVersion": "2026-11-11 modular split",
+  "screens": [
+    {
+      "id": "M01",
+      "title": "Dashboard",
+      "section": "01 · Core app",
+      "phase": "1",
+      "source": "figma-original-recreated",
+      "anchor": "mvp",
+      "reference_only": true,
+      "file": "dashboard.html"
+    },
+    {
+      "id": "M02",
+      "title": "Products",
+      "section": "01 · Core app",
+      "phase": "2",
+      "source": "figma-original-recreated",
+      "anchor": "mvp",
+      "reference_only": true,
+      "file": "products.html"
+    },
+    {
+      "id": "M03",
+      "title": "Product Detail",
+      "section": "01 · Core app",
+      "phase": "3",
+      "source": "figma-original-recreated",
+      "anchor": "mvp",
+      "reference_only": true,
+      "file": "products.html"
+    },
+    {
+      "id": "M04",
+      "title": "Add Product",
+      "section": "01 · Core app",
+      "phase": "3",
+      "source": "figma-original-recreated",
+      "anchor": "mvp",
+      "reference_only": true,
+      "file": "products.html"
+    },
+    {
+      "id": "I07",
+      "title": "Edit Product",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "products.html"
+    },
+    {
+      "id": "I08",
+      "title": "Product Search",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "products.html"
+    },
+    {
+      "id": "I09",
+      "title": "Archive Product",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "products.html"
+    },
+    {
+      "id": "I01",
+      "title": "Stock Movements",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "stock_movements.html"
+    },
+    {
+      "id": "I02",
+      "title": "Record Stock Receipt",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "stock_movements.html"
+    },
+    {
+      "id": "I03",
+      "title": "Record Stock Issue",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "stock_movements.html"
+    },
+    {
+      "id": "I04",
+      "title": "Stock Adjustment",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "stock_movements.html"
+    },
+    {
+      "id": "I05",
+      "title": "Movement Details",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "stock_movements.html"
+    },
+    {
+      "id": "I06",
+      "title": "Low-stock Alerts",
+      "section": "02 · Stock movements",
+      "phase": "4A",
+      "source": "figma-expanded-recreated",
+      "anchor": "stock",
+      "reference_only": true,
+      "file": "stock_movements.html"
+    },
+    {
+      "id": "I10",
+      "title": "Suppliers",
+      "section": "03 · Suppliers",
+      "phase": "4B",
+      "source": "figma-expanded-recreated",
+      "anchor": "suppliers",
+      "reference_only": true,
+      "file": "suppliers.html"
+    },
+    {
+      "id": "I11",
+      "title": "Supplier Profile",
+      "section": "03 · Suppliers",
+      "phase": "4B",
+      "source": "figma-expanded-recreated",
+      "anchor": "suppliers",
+      "reference_only": true,
+      "file": "suppliers.html"
+    },
+    {
+      "id": "I12",
+      "title": "Add Supplier",
+      "section": "03 · Suppliers",
+      "phase": "4B",
+      "source": "figma-expanded-recreated",
+      "anchor": "suppliers",
+      "reference_only": true,
+      "file": "suppliers.html"
+    },
+    {
+      "id": "I13",
+      "title": "Edit Supplier",
+      "section": "03 · Suppliers",
+      "phase": "4B",
+      "source": "figma-expanded-recreated",
+      "anchor": "suppliers",
+      "reference_only": true,
+      "file": "suppliers.html"
+    },
+    {
+      "id": "I14",
+      "title": "Purchase Orders",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I15",
+      "title": "New Purchase Order",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I16",
+      "title": "Add Order Items",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I17",
+      "title": "Purchase Order Detail",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I18",
+      "title": "Approve Purchase Order",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I19",
+      "title": "Receive Purchase Order",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I20",
+      "title": "Goods Received",
+      "section": "04 · Purchasing",
+      "phase": "4C",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "I21",
+      "title": "Supplier Quotations",
+      "section": "04 · Purchasing",
+      "phase": "4D",
+      "source": "figma-expanded-recreated",
+      "anchor": "purchasing",
+      "reference_only": true,
+      "file": "purchase_orders.html"
+    },
+    {
+      "id": "R01",
+      "title": "Reports overview",
+      "section": "05 · Reports & exports",
+      "phase": "4D",
+      "source": "html-original",
+      "anchor": "reports",
+      "reference_only": true,
+      "file": "reports.html"
+    },
+    {
+      "id": "R02",
+      "title": "Stock valuation",
+      "section": "05 · Reports & exports",
+      "phase": "4D",
+      "source": "html-original",
+      "anchor": "reports",
+      "reference_only": true,
+      "file": "reports.html"
+    },
+    {
+      "id": "R03",
+      "title": "Movement report",
+      "section": "05 · Reports & exports",
+      "phase": "4D",
+      "source": "html-original",
+      "anchor": "reports",
+      "reference_only": true,
+      "file": "reports.html"
+    },
+    {
+      "id": "R04",
+      "title": "Low-stock report",
+      "section": "05 · Reports & exports",
+      "phase": "4D",
+      "source": "html-original",
+      "anchor": "reports",
+      "reference_only": true,
+      "file": "reports.html"
+    },
+    {
+      "id": "R05",
+      "title": "Export report",
+      "section": "05 · Reports & exports",
+      "phase": "4D",
+      "source": "html-original",
+      "anchor": "reports",
+      "reference_only": true,
+      "file": "reports.html"
+    },
+    {
+      "id": "S01",
+      "title": "Settings",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S02",
+      "title": "Business profile",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S03",
+      "title": "Preferences",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S04",
+      "title": "Notification settings",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S05",
+      "title": "Notification center",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S06",
+      "title": "My profile",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S07",
+      "title": "Team members",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S08",
+      "title": "Invite teammate",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "S09",
+      "title": "Team member access",
+      "section": "06 · Settings & team management",
+      "phase": "4E",
+      "source": "html-original",
+      "anchor": "settings",
+      "reference_only": true,
+      "file": "settings.html"
+    },
+    {
+      "id": "A01",
+      "title": "Welcome",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A02",
+      "title": "Sign in",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A03",
+      "title": "Create account",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A04",
+      "title": "Forgot password",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A05",
+      "title": "Check your email",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A06",
+      "title": "Workspace setup",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A07",
+      "title": "Choose workspace",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "A08",
+      "title": "Reset link sent",
+      "section": "07 · Authentication & onboarding",
+      "phase": "4F",
+      "source": "html-original",
+      "anchor": "auth",
+      "reference_only": true,
+      "file": "authentication.html"
+    },
+    {
+      "id": "X01",
+      "title": "No internet connection",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X02",
+      "title": "No products yet",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X03",
+      "title": "Something went wrong",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X04",
+      "title": "Permission required",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X05",
+      "title": "Working on your request",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X06",
+      "title": "Changes saved",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X07",
+      "title": "Discard changes?",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    },
+    {
+      "id": "X08",
+      "title": "No search results",
+      "section": "08 · System states",
+      "phase": "4G",
+      "source": "html-original",
+      "anchor": "states",
+      "reference_only": true,
+      "file": "system_states.html"
+    }
+  ]
+}
