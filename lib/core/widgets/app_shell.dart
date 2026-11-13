@@ -28,7 +28,9 @@ class _AppShellState extends State<AppShell> {
       ),
       const ProductsScreen(),
       const MovementsScreen(),
-      const SetttingsScreen(),
+      SetttingsScreen(
+        onOpenMovements: () => setState(() => currentPageIndex = 2),
+      ),
     ];
     return Scaffold(
       body: screens[currentPageIndex],

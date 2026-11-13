@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:stockpilot/core/theme/app_theme.dart';
 import 'package:stockpilot/features/purchase_orders/approve_purchase_order_screen.dart';
+import 'package:stockpilot/features/purchase_orders/goods_received_screen.dart';
 import 'package:stockpilot/features/purchase_orders/purchase_order.dart';
 import 'package:stockpilot/features/purchase_orders/purchase_orders_mock_data.dart';
 import 'package:stockpilot/features/purchase_orders/receive_purchase_order_screen.dart';
@@ -131,8 +132,13 @@ void main() {
       await tester.tap(find.text('Confirm Receipt'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Continue'));
-      await tester.pump();
-      expect(find.textContaining('Nothing was recorded'), findsOneWidget);
+      await tester.pumpAndSettle();
+      expect(find.byType(GoodsReceivedScreen), findsOneWidget);
+      expect(find.text('PO-2026-013'), findsOneWidget);
+      expect(find.textContaining('DEL-2026-042'), findsOneWidget);
+      expect(find.text('1,500 kg'), findsOneWidget);
+      expect(find.text('500 pcs'), findsOneWidget);
+      expect(find.textContaining('No receipt, stock movement'), findsOneWidget);
       expect(order.status, PurchaseOrderStatus.approved);
     },
   );

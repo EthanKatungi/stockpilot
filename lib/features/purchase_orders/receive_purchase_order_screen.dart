@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/theme/app_theme.dart';
+import 'goods_receipt_preview.dart';
+import 'goods_received_screen.dart';
 import 'purchase_order.dart';
 import 'purchase_order_draft.dart';
 import 'widgets/purchase_order_components.dart';
@@ -17,9 +19,14 @@ import 'widgets/purchase_order_components.dart';
 }
 
 class ReceivePurchaseOrderScreen extends StatefulWidget {
-  const ReceivePurchaseOrderScreen({super.key, required this.order});
+  const ReceivePurchaseOrderScreen({
+    super.key,
+    required this.order,
+    this.onOpenMovements,
+  });
 
   final PurchaseOrder order;
+  final VoidCallback? onOpenMovements;
 
   @override
   State<ReceivePurchaseOrderScreen> createState() =>
@@ -115,15 +122,35 @@ class _ReceivePurchaseOrderScreenState
       ),
     );
     if (!mounted || confirmed != true) return;
-    ScaffoldMessenger.of(context)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Goods receiving will be implemented in a later phase. Nothing was recorded.',
+    final lines = <ReceiptPreviewLine>[
+      for (final (index, item) in widget.order.items.indexed)
+        if ((double.tryParse(
+                  _quantityControllers[index].text.replaceAll(',', ''),
+                ) ??
+                0) >
+            0)
+          ReceiptPreviewLine(
+            productName: item.productName,
+            quantity: double.parse(
+              _quantityControllers[index].text.replaceAll(',', ''),
+            ),
+            unit: parseOrderedQuantity(item.quantity)!.unit,
           ),
+    ];
+    final preview = GoodsReceiptPreview(
+      order: widget.order,
+      deliveryReference: _referenceController.text.trim(),
+      receivedAt: _receiptDate,
+      lines: lines,
+    );
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => GoodsReceivedScreen(
+          preview: preview,
+          onOpenMovements: widget.onOpenMovements,
         ),
-      );
+      ),
+    );
   }
 
   @override

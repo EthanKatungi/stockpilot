@@ -7,9 +7,14 @@ import 'receive_purchase_order_screen.dart';
 import 'widgets/purchase_order_components.dart';
 
 class PurchaseOrderDetailScreen extends StatelessWidget {
-  const PurchaseOrderDetailScreen({super.key, required this.order});
+  const PurchaseOrderDetailScreen({
+    super.key,
+    required this.order,
+    this.onOpenMovements,
+  });
 
   final PurchaseOrder order;
+  final VoidCallback? onOpenMovements;
 
   @override
   Widget build(BuildContext context) {
@@ -150,8 +155,10 @@ class PurchaseOrderDetailScreen extends StatelessWidget {
                       label: 'Receive Goods',
                       onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute<void>(
-                          builder: (_) =>
-                              ReceivePurchaseOrderScreen(order: order),
+                          builder: (_) => ReceivePurchaseOrderScreen(
+                            order: order,
+                            onOpenMovements: onOpenMovements,
+                          ),
                         ),
                       ),
                     )

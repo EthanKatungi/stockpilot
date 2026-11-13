@@ -5,14 +5,16 @@ import '../products/widgets/category_filter_chip.dart';
 import 'purchase_order.dart';
 import 'purchase_order_detail_screen.dart';
 import 'new_purchase_order_screen.dart';
+import 'supplier_quotations_screen.dart';
 import 'purchase_orders_mock_data.dart';
 import 'widgets/purchase_order_components.dart';
 
 class PurchaseOrdersScreen extends StatefulWidget {
-  const PurchaseOrdersScreen({super.key, this.orders});
+  const PurchaseOrdersScreen({super.key, this.orders, this.onOpenMovements});
 
   /// Optional fixtures make the empty state previewable without changing demo data.
   final List<PurchaseOrder>? orders;
+  final VoidCallback? onOpenMovements;
 
   @override
   State<PurchaseOrdersScreen> createState() => _PurchaseOrdersScreenState();
@@ -134,8 +136,10 @@ class _PurchaseOrdersScreenState extends State<PurchaseOrdersScreen> {
                         order: order,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(
-                            builder: (_) =>
-                                PurchaseOrderDetailScreen(order: order),
+                            builder: (_) => PurchaseOrderDetailScreen(
+                              order: order,
+                              onOpenMovements: widget.onOpenMovements,
+                            ),
                           ),
                         ),
                       ),
@@ -160,6 +164,20 @@ class _PurchaseOrdersScreenState extends State<PurchaseOrdersScreen> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
+                    ),
+                  ),
+                  const SizedBox(height: 9),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 46,
+                    child: OutlinedButton.icon(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => const SupplierQuotationsScreen(),
+                        ),
+                      ),
+                      icon: const Icon(Icons.compare_arrows, size: 18),
+                      label: const Text('Compare Supplier Quotations'),
                     ),
                   ),
                 ],

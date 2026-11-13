@@ -5,7 +5,9 @@ import '../purchase_orders/purchase_orders_screen.dart';
 import '../suppliers/suppliers_screen.dart';
 
 class SetttingsScreen extends StatelessWidget {
-  const SetttingsScreen({super.key});
+  const SetttingsScreen({super.key, this.onOpenMovements});
+
+  final VoidCallback? onOpenMovements;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,9 @@ class SetttingsScreen extends StatelessWidget {
                   icon: Icons.receipt_long_outlined,
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(
-                      builder: (_) => const PurchaseOrdersScreen(),
+                      builder: (_) => PurchaseOrdersScreen(
+                        onOpenMovements: onOpenMovements,
+                      ),
                     ),
                   ),
                 ),
