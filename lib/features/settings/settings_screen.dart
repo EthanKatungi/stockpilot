@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../reports/analytics_dashboard_screen.dart';
 import '../purchase_orders/purchase_orders_screen.dart';
 import '../suppliers/suppliers_screen.dart';
 
@@ -65,6 +66,21 @@ class SetttingsScreen extends StatelessWidget {
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute<void>(
                       builder: (_) => PurchaseOrdersScreen(
+                        onOpenMovements: onOpenMovements,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                const Text('Reports', style: AppTheme.sectionTitle),
+                const SizedBox(height: 13),
+                _SettingsDestination(
+                  title: 'Analytics & Reports',
+                  subtitle: 'Inventory trends and valuation',
+                  icon: Icons.bar_chart_outlined,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => AnalyticsDashboardScreen(
                         onOpenMovements: onOpenMovements,
                       ),
                     ),
